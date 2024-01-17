@@ -1,38 +1,37 @@
 const user = {
-    username: "Abhisek",
-    LoginCount: 8,
-    isLoggedIn: true,
-    
-    getUserDetails: function () {
-        console.log(`Username: ${this.username}, Login Count: ${this.LoginCount}, Logged In: ${this.isLoggedIn}`);
+    username: "hitesh",
+    loginCount: 8,
+    signedIn: true,
+
+    getUserDetails: function(){
+        //console.log("Got user details from database");
+        // console.log(`Username: ${this.username}`);
+        console.log(this);
     }
+
 }
 
-console.log(user.username);
-user.getUserDetails();
 
-const promiseOne = new Promise((resolve, reject) => {
-    // Your asynchronous code or logic here
-    // If the asynchronous operation is successful, call resolve
-    // resolve(result);
-    // If there is an error, call reject
-    // reject(error);
-    
-    this.greeting = function() {
+
+//console.log(user.username)
+//console.log(user.getUserDetails());
+// console.log(this);
+
+
+function User(username, loginCount, isLoggedIn){
+    this.username = username;
+    this.loginCount = loginCount;
+    this.isLoggedIn = isLoggedIn
+
+    this.greeting = function(){
         console.log(`Welcome ${this.username}`);
-    };
-});
 
-const date = new Date();
+    }
 
-function User(userName, LoginCount, isLoggedIn) {
-    this.username = userName;
-    this.LoginCount = LoginCount;
-    this.isLoggedIn = isLoggedIn;
-    // Return 'this' implicitly (you don't need to explicitly return 'this')
+    return this
 }
 
-const userOne = new User("Abhisek", 12, true);
-const userTwo = new User("Abhisek JavaScript", 11, false);
-console.log(userOne);
-console.log(userTwo);
+const userOne = new User("hitesh", 12, true)
+const userTwo = new User("ChaiAurCode", 11, false)
+console.log(userOne.constructor);
+//console.log(userTwo);
